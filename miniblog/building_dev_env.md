@@ -52,7 +52,7 @@
   ```
   - `config/database.yml`から`production`のところを削除する
   - PostgreSQL DBに、`miniblog`という名前のユーザを作成する
-    `createuser miniblog`
+    `createuser --superuser miniblog`
   - 開発とテストの両方のDBを作成する
   ```
   createdb miniblog_development -O miniblog
@@ -83,6 +83,7 @@
     ```
   - `app/views/layouts/application.html.haml`の`stylesheet_link_tag`を`stylesheet_pack_tag`に置き換える
 - [x] Test環境を整える, 見積時間: 10 min., 所要時間: 8 min.
+  - `capybara, selenium-webdriver, webdrivers` gemを`Gemfile`に加え、`bundle install`する。ただし、groupは、`:test`である
   - `rspec-rails`, `factory_bot_rails` gemを`Gemfile`に加え、`bundle install`する。ただし、groupは、`:development, :test`である
   - `rails g rspec:install`を実行する
   - `.rspec`に、`--format documentation`を追加する
